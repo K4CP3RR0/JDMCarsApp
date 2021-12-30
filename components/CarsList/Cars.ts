@@ -2,7 +2,7 @@ export default [
   {
     name: 'JDM Cars Info',
     tagline:'BY 808 DEVELOPERS',
-    video: require('../../assets/images/cars/jdmv.mp4'),
+    image: require('../../assets/images/cars/JDMCarsInfo.png'),
   }
   ,{
     name: 'Skyline R34 GT-R',

@@ -1,21 +1,23 @@
 import React from 'react';
-import {View, Text, ImageBackground,StyleSheet, Dimensions , VideoBackground} from 'react-native';
-
+import { useNavigation } from '@react-navigation/core';
+import {View, Text, ImageBackground,StyleSheet, Dimensions} from 'react-native';
+import CarInfo from '../CarInfo/';
 import StyledButton from '../StyledButton';
 
 const CarItem = (props) => {
 
-    const{name,tagline,image,video}=props.car;
+    const{name,tagline,image}=props.car;
+    const navigation = useNavigation();
     return (
         <View style={styles.carContainer}>
         
         <ImageBackground 
         source={image} 
         style={styles.image}
+        // blurRadius={8}
         />
-        <VideoBackground
-        source={video}
-        style={styles.image}/>
+        
+        
 
         <View style={styles.titles}>
           
@@ -28,7 +30,7 @@ const CarItem = (props) => {
         <View style={styles.buttonsContainer}>
 
         <StyledButton type="secondary" content="Read More" onPress={()=> {
-            console.warn('Read More was pressed');
+            // navigation.navigate({'CarInfo'});
         }}/>
        
 
@@ -56,13 +58,18 @@ const styles = StyleSheet.create({
         fontSize: 40,
         fontWeight:'bold',
         color:'white',
+        textShadowColor: '#000', 
+        textShadowOffset: { width: 1, height: 1 },
+        textShadowRadius: 8,
         
     
       },
       subtitle:{
         fontSize: 16,
         color:'white',
-      
+        textShadowColor: '#000', 
+        textShadowOffset: { width: 1, height: 1 },
+        textShadowRadius: 3,
         
         
       },
@@ -74,6 +81,7 @@ const styles = StyleSheet.create({
         height: '100%',
         resizeMode:'cover',
         position:'absolute',
+        
       },
       buttonsContainer:{
           position:'absolute',
